@@ -1,5 +1,5 @@
 COMPILER=latexmk
-NAME=etude-docu
+NAME=sbt11-docu
 
 all: $(NAME).tex
 	$(COMPILER) -pdf -pdflatex="pdflatex -shell-escape -enable-write18" \
