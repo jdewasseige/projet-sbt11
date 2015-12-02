@@ -1,31 +1,44 @@
 \section{Livrable}
 \subsection{Implémentation du modèle LNAS sous Julia}
 On va travailler sur le Modèle LNAS, adapté à la modélisation du blé. 
-Le client a déja implémenté ce modèle en C++. Nous allons pour notre part l'implémenter sous Julia.
+Le client a déja implémenté ce modèle en C++. 
+Nous allons pour notre part l'implémenter sous Julia.
 
-Ce modèle était d'abord utilisé pour modéliser la betterave, plus simple à modéliser que le blé. En effet, pour la betterave il suffit de modéliser ses racines (partie "utile") et ses feuilles.
-On va modéliser le blé, on rajoute la tige et les grains (partie "utile" du blé) pour maximiser le rendement des cultures en minimisant l’apport d’intrans.
-Nous allons donc utiliser la Plateforme Pygmalion pour implémenter ce modèle du blé, en nous basant sur un document fourni par le client.
+Ce modèle était d'abord utilisé pour modéliser la betterave, 
+plus simple à modéliser que le blé. 
+En effet, pour la betterave il suffit de modéliser 
+ses racines (partie \"utile\") et ses feuilles.
+On va modéliser le blé, on rajoute la tige et les grains (partie "utile" du blé)
+pour maximiser le rendement des cultures en minimisant l’apport d’intrans.
+Nous allons donc utiliser la plateforme Pygmalion pour implémenter ce modèle du blé,
+en nous basant sur un document fourni par le client.
 
-Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, nous allons donc procéder à une analyse de paramètres et de leur influence. En effet, on ne peut pas mesurer tous les paramètres tout le temps (cela ayant un coût) 
-Le but sera d'obtenir une liste \textit{des paramètres pertinents.}
+Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, 
+nous allons donc procéder à une analyse de paramètres et de leur influence. 
+En effet, on ne peut pas mesurer tous les paramètres tout 
+le temps (cela ayant un coût) 
+Le but sera d'obtenir une liste \emph{des paramètres pertinents}.
 
 Le modèle LNAS est un modèle de Markov caché : 
-n : temps (discret)
-Xn : variable au temps n
-Qgrain, Qleaf... : biomasse des grains, feuilles...
-f : fonction qui permet de passer du temps n au temps n+1
-P : paramètres
-En : précipations, température... au temps n
+\begin{itemize}
+  \item $n$  temps (discret)     
+  \item $X_n$ variable au temps $n$       
+  \item $Q\sub{gain}, Q\sub{leaf}... $ biomasse des grains, feuilles...      
+  \item $f$ fonction qui permet de passer du temps $n$ au temps $n+1$     
+  \item $P$ paramètres      
+  \item En précipations, température... au temps $n$
+\end{itemize}
+
 \begin{equation}
-Xn+1=f(Xn,En,P,n)
+  X_{n+1} = f(X_n,E_n,P,n)
 \end{equation} 
 
-Qprod(n) proportionnelle à (1-exp(-lambda*LAI(n))) avec LAI la quantité lumineuse reçue par la plante
+$Q\sub{prod}(n)$ proportionnelle à $(1-\exp{(-\lambda \, \text{LAI}(n))})$ 
+avec LAI la quantité lumineuse reçue par la plante
 
-C’est un modèle de Markov caché car P(Xn+1/X0,…,Xn)=P(Xn+1/Xn) : pas de mémoire du passé.
+C’est un modèle de Markov caché, il n'y a pas de mémoire du passé.
+\[
+  P(X_{n+1}/X_0,…,X_n) = P(X_{n+1} / X_n) 
+\] 
 
-On déduit Qgrain(n)... grâce à Xn et la fonction d'allocation de biomasse.
-
-
-
+On déduit $Q\sub{grain}(n)$... grâce à $X_n$ et la fonction d'allocation de biomasse.
