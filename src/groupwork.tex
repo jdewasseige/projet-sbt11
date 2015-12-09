@@ -7,7 +7,7 @@ On détaillera finalement l'organisation interne du groupe,
 plus précisemment le système mis en place pour optimiser la communication
 ainsi que la manière dont les tâches ont été réparties pendant ce premier semestre.
 
-\subsubsection*{Outils de travail collaboratif}
+\subsection{Outils de travail collaboratif}
 Pour des raisons pratiques et esthétiques, nous avons décider d'écrire
 nos rapports en \LaTeX.
 Il s'agissait donc de trouver la meilleure façon de partager le code source
@@ -21,13 +21,15 @@ le système de compilation est assez lent et l'utilisateur n'est pas libre
 d'utiliser son éditeur de texte ou son visualisateur de \textsc{pdf} favori.
 
 Pour palier aux problèmes décrits ci-dessus, le logiciel \texttt{git}
-est une très bonne alternative.
-Il permet en effet à chaque membre du groupe de travailler localement
-et de ne faire un \emph{push} sur le serveur que lorsqu'on juge
-que ce qu'on a fait est utile pour les autres.
+associé à GitHub est une très bonne alternative.
+Il permet en effet à chaque membre du groupe de travailler sans être connecté
+ainsi que d'utiliser son éditeur et compilateur favori.
+Chaque membre travaille donc de son côté en faisant des \emph{commits}
+et lorsqu'il juge que son travail est utile pour les autres, 
+il \emph{push} sur le serveur.
 L'algorithme du fusion, \emph{merge}, permet également de fusionner intelligemment
 les lignes d'un fichier qui ont été modifiées par plusieurs membres.
-Le dernier point à souligner est qu'il permet une gestion des branches,
+Le dernier point à souligner est que \texttt{git} permet une gestion des branches,
 particulièrement pratique lorsqu'on veut développer une partie du projet
 sans risquer de créer des erreurs dans le programme principal.
 
@@ -37,7 +39,7 @@ Nous avons également un dossier sur
 GitHub\footnote{\url{https://github.com/jdewasseige/projet-sbt11}}
 qui contient nos fichiers pour rédiger l'étude documentaire.
 
-\subsubsection*{Gestion de la bibliographie}
+\subsection{Gestion de la bibliographie}
 Pour la gestion de la bibliographie au sein du document,
 nous utilisons le package \texttt{biblatex}.
 Celui-ci permet d'écrire l'ensemble de nos références dans un document \texttt{.bib}
@@ -65,7 +67,7 @@ qui font le travail à notre place.
 Les sources trouvées sur Google Scholar peuvent également être exportées
 aisément au format \texttt{BibTex}.
            
-\subsubsection*{Organisation de l'équipe et partage de tâches}
+\subsection{Organisation et partage des tâches}
 Il nous reste un dernier point à décrire, celui de la \emph{communication}
 au sein du groupe.
 Nous utilisons Slack\footnote{\url{https://slack.com/}} qui est un logiciel
@@ -80,10 +82,8 @@ Par exemple dans ce projet nous avons les \emph{channels} suivantes :
 \texttt{planning} et \texttt{dev\_plate-forme}.
 On trouve aussi un système d'historique et de gestion de fichiers efficace.
 
-%Le partage de tâches est associé au planning qui se trouve
-%dans l'Annexe~\ref{ann:planning} à la page~\pageref{ann:planning}.
-
-% TODO planning en annexe
+Le partage de tâches est associé au planning qui se trouve
+dans l'Annexe~\ref{ann:planning} à la page~\pageref{ann:planning}.
 
 \subsection{Risques, difficultés et problèmes potentiels}
 Nous avons identifié plusieurs risques, difficultés et problèmes qui pourrait survenir durant le projet et ralentir sa mise en oeuvre: 
