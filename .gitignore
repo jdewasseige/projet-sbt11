@@ -16,7 +16,7 @@
 *.asv
 *.db
 auxFile/*
-etude-docu.pdf
+sbt11-docu.pdf
 
 #biblatex
 *.bbl
