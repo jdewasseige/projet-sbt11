@@ -7,23 +7,22 @@ Nous allons pour notre part l'implémenter sous Julia.
 Ce modèle était d'abord utilisé pour modéliser la betterave, 
 plus simple à modéliser que le blé. 
 En effet, pour la betterave il suffit de modéliser 
-ses racines (partie \"utile\") et ses feuilles.
-On va modéliser le blé, on rajoute la tige et les grains (partie "utile" du blé)
+ses racines (partie utile) et ses feuilles.
+On va modéliser le blé, on rajoute la tige et les grains (partie utile du blé)
 pour maximiser le rendement des cultures en minimisant l’apport d’intrans.
 Nous allons donc utiliser la plateforme Pygmalion pour implémenter ce modèle du blé,
 en nous basant sur un document fourni par le client.
 
-Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, 
-nous allons donc procéder à une analyse de paramètres et de leur influence. 
-En effet, on ne peut pas mesurer tous les paramètres tout 
-le temps (cela ayant un coût) 
-Le but sera d'obtenir une liste \emph{des paramètres pertinents}.
+Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, nous essaierons donc d'estimer ces paramètres par calibration, grâce aux outils fournis par la statistique.
+
+De plus, les mesures étant difficiles à réaliser et ayant un coût, on ne peut pas mesurer toutes les variables tout le temps. A terme, le but serait \"d'obtenir une méthode permettant d'optimiser le choix des variables à mesurer expérimentalement\”, celles qui ont la plus grande influence et dont les mesures sont accessibles. Nous pourrions ainsi réduire l'incertitude sur les prédictions du modèle, en optimisant la calibration.
+
 
 Le modèle LNAS est un modèle de Markov caché : 
 \begin{itemize}
   \item $n$  temps (discret)     
   \item $X_n$ variable au temps $n$       
-  \item $Q\sub{gain}, Q\sub{leaf}... $ biomasse des grains, feuilles...      
+  \item $Q\sub{grain}, Q\sub{leaf}... $ biomasse des grains, feuilles...      
   \item $f$ fonction qui permet de passer du temps $n$ au temps $n+1$     
   \item $P$ paramètres      
   \item En précipations, température... au temps $n$
