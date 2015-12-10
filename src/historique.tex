@@ -1,0 +1,119 @@
+\section{Historique de la modélisation de la croissance des plantes}
+
+\subsection{Débuts de la botanique et de l'agronomie}
+
+L’étude des plantes a très tôt été un domaine privilégié du savoir humain. Les plantes en effet sont un élément majeur des écosystèmes dans lesquels l’homme évolue. Elles sont une source de nourriture, de remèdes, de médicaments, de matériaux, d’esthétique. Enfin elles sont un objet scientifique d’intérêt qui a très tôt aiguisé le sens de l’observation, l’esprit d’analyse, de synthèse, de déduction des hommes. La connaissance des plantes s’est accru lors de l’histoire des hommes qui a développé la cueillette, l’agriculture, l’usage des plantes médicinales. La connaissance et l’inventaire des variétés de plante a ainsi été un enjeu majeur car elle permettait la connaissance de nouveaux remèdes, sources de nourritures et matériaux. L’homme a aussi cherché à regrouper, croiser, faire croître et conserver les espèces qui lui sont utiles.
+
+La botanique, issue de l’étude de l’anatomie des plantes est très ancienne. En témoignent les traités de classification de plantes comme ceux d’Aristote (vers-300), ou l’inventaire ou la description de centaines de plantes médicinales par Dioscoride (1er siècle), ainsi que les traités chinois qui inventorient les espèces utiles à l’agriculture et à la médecine traditionnelle avec de premiers efforts de classification. Efforts de classification qui se poursuivront vraiment en Europe à partir du XVIIème siècle avec les premières distinctions par famille, par genre, par espèce, par structure de graine (Les éléments de Botanique,  Joseph Pitton de Tournefort 1656-1708),   Linné Systema naturae(1735) et Philosophia botanica (1751). La famille de Jussieu (XVIIIème). Ces classifications ne sont objectives, elles sont le fruit d’un raisonnement empirique et pratique.
+
+L’agronomie se développe aussi au XVIIème siècle en Europe, qui s’intéresse au processus de croissance et développement des plantes. Des travaux d’abord très pratiques sur des méthodes agricoles (labour, ensemencement, taille, greffes…) Jean-Baptiste de la Quintinie Introduction pour les jardins fruitiers et potagers (1690)  Olivier de Serres (1539-1619) Théâtre de l'Agriculture
+
+Au XIXème, le processus biologique commence à être étudié de façon plus précise, d’où provient le carbone, l’azote, l’oxygène et l’eau de la plante, les problématiques de nutrition, le rôle de organes   Théodore de Saussure Recherches chimiques sur la végétation (1804) Puis avec Julius von Sachs   (1832-1897)la respiration et la photosynthèse avec la fameuse équation :
+
+\[6 \mathrm{CO_2} + 6 \mathrm{H_2O} + \mathrm{ÉNERGIE SOLAIRE} = \mathrm{C_6H_12O_6} + 6 \mathrm{O_2} \]
+
+La physiologie qui traite du fonctionnement des plantes se sépare alors de la botanique qui se contente de les classifier.
+
+\subsection{Les premiers modèles}
+
+La modélisation mathématique précise qui va au-delà de la simple description qualitative mais fournit une description quantitative avec des capacités prédictives n’arrive pas tout de suite en Biologie, qui est plus une affaire d’érudition que de calculs. Le développement de la biologie n’a pas suivi le même schéma que celui de nombreuses autres sciences comme la physique, où l’observation a permis de tirer des concepts quantitatifs au niveau macroscopique (Mariotte par exemple) avant de les expliquer par des lois qui s’appliquent au niveau microscopique (Boltzmann). De même pour la mécanique, l’optique, l’électricité avec des applications qui n’ont pas eu à attendre la compréhension au niveau atomique. La biologie végétale par contre a paradoxalement été mieux comprise au niveau cellulaire et microscopique sans que des lois précises macroscopiques en soient tirées.
+
+Trois types de modèles se sont pourtant développés qui vont changer cela : les modèles de l’architecture botanique, les modèles de production en agronomie et les modèles géométriques en informatique. Ainsi la convergence de ces trois modèles initialement séparés va permettre récemment les débuts de la modélisation précise de la croissance des plantes à la fin du XXème siècle.  
+
+D’abord l’architecture botanique va considérer la structure des plantes non plus comme une description statique issue de la classification traditionnelle mais comme le résultat de l’organogénèse des méristèmes, la cinétique de mise en place des axes feuillés, en se basant sur une combinatoire des modes de croissance, de ramification et de floraison. (Francis Hallé et Roelof Oldeman).
+
+En parallèle l’agronomie s’est attaquée à la prédiction de la production surfacique de biomasse. Les modèles hollandais comme celui de De Witt (1970) en sont les précureurs. On ne considère plus la plante en elle-même mais la surface foliaire au mètre carré (LAI : Leaf Area Index) et la production végétale par mètre carré considérée par compartiments, chaque compartiment ayant sa force de puits qui détermine la quantité de biomasse puisée dans le pool de biomasse. A ce niveau on a montré que la production est proportionnelle à l’énergie utile de la lumière incidente (PAR : photosynthetically active radiation), à celle interceptée et à un facteur d’efficience énergétique (LUE : light use efficiency). On se reporte souvent à la loi de Beer-Lambert pour trouver I la quantité de lumière interceptée : 
+
+\[ I = 1-e^{-k\cdot\mathrm{LAI}} \]
+
+Ce qui permet ensuite de trouver la production de biomasse en déterminant le LUE et en mesurant la PAR.
+
+\[ Q = \mathrm{LUE}\times\mathrm{PAR}\times I \]
+
+ie
+
+\[ Q = \mathrm{LUE}\times\mathrm{PAR}\times(1-e^{-k\cdot\mathrm{LAI}}) \]
+
+Dernier concept empirique remarquable développé, celui de temps thermique. En effet, si la croissance de la plante est en fonction du temps, cette croissance est très irrégulière et se fait par à coup. Mais si l’on considère le temps thermique, qui est la température moyenne cumulée au-dessus d’un certain seuil au cours du temps, on peut trouver une relation quasi-linéaire.
+
+\subsection{Informatique et modèles géométriques}
+
+L’arrivée des ordinateurs a révolutionné les méthodes de simulation et de modélisation des systèmes et l’étude des plantes en a bien sûr profité.
+Les ordinateurs ont fait leur apparition en même temps presque que les modèles agronomes et botaniques. Ainsi très vite ils ont été vus comme un moyen de simuler la structure géométrique complexe des plantes avec le développement d’arbres combinatoires, binaire et fractals. Mais ces structures purement géométriques et trop rigides ne simulent pas encore bien le développement complexe des plantes.
+Les travaux d’Aristide Lindenmayer aboutissent à une grammaire au formalisme puissant, grammaire générative basée sur le principe de réécriture. \cite{prusinkiewicz2012algorithmic}
+
+L’arrivée des ordinateurs a révolutionné les méthodes de simulation et de modélisation des systèmes et l’étude des plantes en a bien sûr profité.
+Les ordinateurs ont fait leur apparition en même temps presque que les modèles agronomes et botaniques. Ainsi très vite ils ont été vus comme un moyen de simuler la structure géométrique complexe des plantes avec le développement d’arbres combinatoires, binaire et fractals. Mais ces structures purement géométriques et trop rigides ne simulent pas encore bien le développement complexe des plantes.
+Les travaux d’Aristide Lindenmayer aboutissent à une grammaire au formalisme puissant, grammaire générative basée sur le principe de réécriture.
+
+\fbox{%
+    \parbox{\textwidth}{\paragraph{Qu'est-ce qu'un L-Système?}
+Un L-Système est noté :
+\[ \{ V,S,\omega ,P \}  \]
+Une grammaire formelle qui comprend :
+\begin{itemize}
+\item Un ensemble alphabet \textbf{V}: Ensemble de variable du L-Système
+\item Un ensemble de constantes \textbf{S} : Ensemble de constantes servant notamment lors du dessin géométrique.
+\item Un axiome de départ $\mathbf{\omega}$ : État initial.
+\item Un ensemble de règles \textbf{P} : Règles de production.
+\end{itemize}
+Un exemple simple : Algues de Lindenmayer
+\[ \left\lbrace
+		\begin{array}{l}
+		 V = \{ A, B\} \\
+		 S = \{ \} \\
+		 \omega = A \\
+		 P = ( A\rightarrow AB)\wedge (B\rightarrow A) \\
+		 
+		
+\end{array}
+\right. 
+ \]
+Avec le résultat sur 6 générations :
+
+•	n=0, A
+
+•	n=1, AB
+
+•	n=2, AB A
+
+•	n=3, AB A AB
+
+•	n=4, AB A AB AB A
+
+•	n=5, AB A AB AB A AB A AB
+
+•	n=6, AB A AB AB A AB A AB AB A AB AB A
+
+Une suite de symbole générée par L-Système peut être prise en entré par un programme informatique qui s’en servira pour gérer une structure géométrique, le plus simple étant d’utilisé un turtle en 2D voire en 3D, mais dans un langage orienté objet avec des pointeurs on peut générer une chaine cellulaire qui évolue. Les symboles dans V sont les parties des plantes dessinées et les symboles dans S donnent des informations sur la façon dont elles sont dessinées, leur orientation par exemple.
+}   
+     }%
+
+Ces modèles de L-système conviennent bien à la simulation des structures des plantes, elles marchent d’autant mieux combinées à la notion de temps thermique qui ordonne la dynamique de croissance et permettent d’aboutir in fine à une architecture fidèle. Mais elles n’intègrent pas la notion de production de biomasse et si elles permettent de prédire une structure finale aussi fidèle que possible, elles ne permettent pas de prédire le rythme de production. Les écophysiologistes se sont alors efforcés d’intégrer des mécanismes de plus en plus fins, avec une simulation locale et géométrique de la photosynthèse, des échanges entre organes par un système de transport-résistance avec la notion de force de puits de organes puits qui puisent la biomasse produite par les organes sources etc… Ces systèmes complexes qui permettent enfin une simulation fine au niveau individuel ne sont pourtant pas adapté à la simulation et encore moins la modélisation d’un grand ensemble de plantes et ceux pour deux raisons : 
+\begin{itemize}
+\item \emph{Le coût en ressources de calcul :} il croît avec le temps de la simulation et le nombre d’individus considérés, encore plus si l’on doit considérer les interactions entre les individus.
+\item \emph{La difficulté à paramétrer :} dû au grand nombre de paramètre notamment par rapport aux données que l’on peut raisonnablement récolter.
+\end{itemize}
+
+\subsection{Le modèle GreenLab : entre modèle individuel et modèle de production}
+
+Le modèle GreenLab propose une alternative. Il reprend des simplifications utiles du modèle agronome au niveau de la production : La prise en compte de l’architecture individuelle de la plante n’est pas utile au niveau d’un champ, mais la connaissance de la distribution des différents organes à différents moment est vitale. Autrement dit, les aspects géométriques peuvent être négligés mais pas la composition quantitative des structures. On fait alors l’hypothèse d’un pool de biomasse commun dans lequel les organes vont piocher, et on ne considère que la photosynthèse net, ie les proportions de glucides qui sert effectivement à la construction de matière sèche des organes. 
+
+Au niveau de l’allocation cette approche décrit précisément des compartiments d’organes se comportant de façon similaire, ce qui rend l’allocation de biomasse plus facile à modéliser entre organes sources et organes puits et permet de se passer d’une description géométrique ou même topologique (graph) exhaustive. Les organes sont générés par cohortes (groupes générés en même temps) de même type grâce à des équations de production des méristèmes selon leur âge physiologique, et des lois de probabilités qui déterminent la croissance, la sénescence et le branching. Et comme tous les organes d’une même cohorte d’organe du même type ont le même état, on peut opérer facilement une factorisation en sous-structures qui rend les calculs plus léger, ainsi le temps de calcul n’est plus proportionnel au nombre d’organe mais seulement à l’âge de la plante. En particulier en multipliant le nombre d’organe de chaque cohorte par la force de puit correspondante et additionnant le tout on obtient la demande de la plante.
+
+Ensuite l’augmentation $\delta q$ de biomasse de chaque organe est obtenu avec la formule suivante :
+
+\[ \delta q = \phi \cdot Q/D \]
+
+Avec $\phi$ la force de puit, Q la pool de biomasse global et D la demande totale de la plante.
+
+La masse des organes est la somme cumulée de l’augmentation des biomasse, on peut obtenir rapidement les dimensions (longueur, diamètre, surface) des organes en utilisant de simples lois géométriques (beaucoup plus simple que celles utilisées lorsque la géométrie est prise en compte dans la production). 
+
+Puis pour que le cycle se répète, la biomasse des compartiments s’obtient  en sommant les cohortes de même organes, en particulier on peut obtenir la masse du feuillage puis la surface foliaire ce qui permettra de déterminer la production de biomasse au prochain cycle. La boucle est bouclée.
+
+Pour résumer, Ce modèle est un modèle dynamique de croisance des plantes qui marche par rétroaction entre croissance (production de biomasse) et développement (allocation quantitative et architecture). Le calcul de la production ne prend que peu en compte l’architecture de la plante mais seulement l’équation global de production et les relations sources-puits ce qui permet des économies de calcul intéressante et n’empêche pas dans un second temps de générer des structures géométriques fidèles issus d’un modèle de production simplifié mais robuste. Ainsi la plasticité des plantes est très bien représenté par ce modèle et on peut rendre compte de différent phénotypes d’une même espèce dans deux environnement très différents.
+
+Cela permet notamment la visualisation en image de synthèse très fidèles et complexes de plantes dont la croissance a été modélisé sans prendre en compte le détail géométrique de cette même structure, donc avec un temps de calcul très intéressant. L’augmentation de biomasse de chaque organe a déjà été simplement déterminée grâce aux équations précédentes, dont on déduit également la forme et le volume, de simples règles géométriques positionnent ces organes dans l’architecture selon l’empilement des entre-nœuds autour d’un axe, la phyllotaxie, l’angle de branchement, la courbure des axes… On peut même simuler des paysages entiers grâce à ces méthodes, avec le raffinement des paysages fonctionnels qui prennent en compte finement les interactions plantes-environnement, la distribution des ressources hydriques et des radiations lumineuses entre plantes qui sont en compétition etc…
+
+
+
