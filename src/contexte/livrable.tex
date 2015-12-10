@@ -1,8 +1,20 @@
 \subsection{Objectifs poursuivis}
-\subsubsection{Implémentation du modèle LNAS sous \textsc{Julia}}
+Avant d'expliquer en détails les objectifs poursuivis par le projet,
+nous proposons au lecteur d'avoir une vision globale sur ces objectifs.
+Pour ce faire, une \emph{fiche objectif} comme celle présentée 
+lors de la conférence sur 
+la méthode du Ludion\footnote{Conférence du 5 novembre 2015 
+sur la méthode de Ludion par Paul-Hubert des \textsc{Mesnards}.} 
+semble parfaitement adaptée.
+Nous y avons par conséquent accordé une importance fondamentale
+lors de la rédaction de cette section.
+Celle-ci se trouve à la Figure~\ref{fig:fiche_obj} 
+dans l'Annexe~\ref{ann:fiche_obj}.
+
+
 On va travailler sur le Modèle LNAS, adapté à la modélisation du blé. 
 Le client a déja implémenté ce modèle en C++. 
-Nous allons pour notre part l'implémenter sous Julia.
+Nous allons pour notre part l'implémenter sous \textsc{Julia}.
 
 Ce modèle était d'abord utilisé pour modéliser la betterave, 
 plus simple à modéliser que le blé. 
@@ -10,13 +22,13 @@ En effet, pour la betterave il suffit de modéliser
 ses racines (partie utile) et ses feuilles.
 On va modéliser le blé, on rajoute la tige et les grains (partie utile du blé)
 pour maximiser le rendement des cultures en minimisant l’apport d’intrans.
-Nous allons donc utiliser la plateforme Pygmalion pour implémenter ce modèle du blé,
+Nous allons donc utiliser la plateforme Pygmalion 
+pour implémenter ce modèle du blé,
 en nous basant sur un document fourni par le client.
 
 Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, nous essaierons donc d'estimer ces paramètres par calibration, grâce aux outils fournis par la statistique.
 
 De plus, les mesures étant difficiles à réaliser et ayant un coût, on ne peut pas mesurer toutes les variables tout le temps. A terme, le but serait \"d'obtenir une méthode permettant d'optimiser le choix des variables à mesurer expérimentalement\", celles qui ont la plus grande influence et dont les mesures sont accessibles. Nous pourrions ainsi réduire l'incertitude sur les prédictions du modèle, en optimisant la calibration.
-
 
 Le modèle LNAS est un modèle de Markov caché : 
 \begin{itemize}
@@ -41,3 +53,5 @@ C’est un modèle de Markov caché, il n'y a pas de mémoire du passé.
 \] 
 
 On déduit $Q\sub{grain}(n)$... grâce à $X_n$ et la fonction d'allocation de biomasse.
+
+
