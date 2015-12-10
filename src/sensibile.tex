@@ -1,0 +1,34 @@
+\subsection{Analyse de sensibilité}
+L'analyse de sensibilité d'un modèle permet d'évaluer la sensibilité de la
+variable réponse à des perturbations dans les entrées du modèle et
+d'identifier les paramètres ayant le plus d'influence
+sur les résultats du modèle.
+
+En supposant que le modèle qui peut se représenter suivant:
+\[
+  y = f(z_1,\dots,z_p)
+\]
+avec $z_1,\dots ,z_p$ les paramètres dont on veut étudier l'influence sur $y$.
+
+Généralement on distingue deux types de méthodes quantitatives:
+\begin{description}
+  \item[les\ méthodes\ locales] Elles permettent d'étudier l'effet de la
+variation locale d'un facteur $z_i$ avec tous les autres facteurs étant fixés à des valeurs moyennes qui en général sont peu coûteuses en temps de calcul
+\item[les\ méthodes\ globales], où on autorise tous les paramètres à varier simultanément dans leur intervalle de variation. Ces méthodes permettent d'identifier et d'évaluer des interaction entre les paramètres
+\end{description}
+ décomposition de la variance V du modèle en termes de dimension croissance pour analyse la sensibilité:
+\[ {V}=\sum_{i=1}^pV_i+\sum_{1\leq i,j \leq p} V_{ij}+\cdots +V_{1\cdots p}\]
+
+\[ {V_i}=Var(E(y|Z_i))\]
+
+\[ {V_{ij}}=Var(E(y|Z_i,Z_j))-V_i-V_j \]
+
+\[ {V_{1\cdots p}}=V-\sum_{i=1}^p V_i-\sum_{1\leq i,j \leq p}-\cdots -\sum_{1\\leq i_1<\dot <i_{p-1}\leq p} V_{i_1 \cdots i_{p-1}} \]
+On défit ensuite les indices de sensibilité correspondants:
+\begin{itemize}
+\item $S_i=\frac{V_i}{V}$: l'indice du premier ordre qui permet d'évaluer chaque facteur individuellement
+\item $S_ij=\frac{V_ij}{V}$: l'indice du premier ordre qui permet d'évaluer quantitativement l'effet d'interaction entre deux facteurs
+\end{itemize}
+En appliquant cette méthode aux systèmes dynamiques dont les sorties sont multidimensionnelles, impliquant le calcul d'indice de sensibilité $S_i^j(t)$ à chaque jour t pour chaque composante $y_j$ de la variable $y$.
+Donc l'indice de sensibilité généralisé du paramèter i  pour la composante $y_j$ :
+\[ {s_i^j}=\frac{\sum_{t=1}^TS_i^j(t)Var(y_j(t))}{\sum_{t=1}^T Var(y_j(t))} \]
