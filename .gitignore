@@ -15,6 +15,7 @@
 *.run.xml
 *.asv
 *.db
+*.lb
 auxFile/*
 sbt11-docu.pdf
 
