@@ -26,7 +26,7 @@ L’objectif est donc à la fois bien de situer les bonnes pratiques de modélis
 
 \subsection{Modèle LNAS}
 
-Le modèle LNAS (Long Normal Allocation and Senescence) appliqué à la betterave. C’est un modèle innovant et suffisamment simple pour illustrer tous les enjeux de la thèse. Il est plutôt robuste étant donné sa simplicité, et le faible nombre de données et paramètre requis le rend pratique à l’utilisation. Il traite la production de biomasse au niveau compartemental et peut être considéré comme une simplification du modèle Digiplante qui décrit les même processus au niveau des organes.
+Le modèle LNAS (Long Normal Allocation and Senescence) appliqué à la betterave. C’est un modèle innovant et suffisamment simple pour illustrer tous les enjeux de la thèse. Il est plutôt robuste étant donné sa simplicité, et le faible nombre de données et paramètre requis le rend pratique à l’utilisation. Il traite la production de biomasse au niveau compartemental et peut être considéré comme une simplification du modèle Greenlab qui décrit les même processus au niveau des organes.
 C’est un modèle Markovien en temps discret.
 
 \begin{figure}[h]
@@ -40,16 +40,22 @@ C’est un modèle Markovien en temps discret.
   \end{center}
 \end{figure}
 
+Production de Biomasse :
 \[ \mathrm{Q}(t) = \big(\mu\cdot\mathrm{PAR}(t)(1-e^{-\lambda\mathrm{Q_g}(t)}\big)\cdot(1+\mathrm{\eta_Q}(t)) \]
 
+Allocation au feuillage :
 \[ \mathrm{Q_f}(t+1) = \mathrm{Q_f}(t) + \mathrm{\gamma}(t)\cdot\mathrm{Q}(t) \]
 
+Allocation à la racine :
 \[ \mathrm{Q_r}(t+1) = \mathrm{Q_r}(t) + (1 -\mathrm{\gamma}(t))\cdot\mathrm{Q}(t) \]
 
+Fonction d'allocation :
 \[ \mathrm{\gamma}(t) = (\gamma_0 + (\gamma_f - \gamma_0)\cdot\mathrm{G_a}(\mathrm{\tau}(t)))\cdot(1+\mathrm{\eta_{\gamma}}(t)) \]
 
+Fonction de sénescence :
 \[ \mathrm{Q_s}(t) = \mathrm{G_s}(\mathrm{\tau}(t)- \tau_{sen})\mathrm{Q_f}(t) \]
 
+Part de la biomasse produite qui arrive aux feuilles vertes :
 \[\mathrm{Q_g}(t) = \mathrm{Q_f}(t) - \mathrm{Q_s}(t) \]
 
 \begin{itemize}
