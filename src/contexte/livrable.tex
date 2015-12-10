@@ -1,4 +1,5 @@
 \subsection{Objectifs poursuivis}
+<<<<<<< HEAD
 Avant d'expliquer en détails les objectifs poursuivis par le projet,
 nous proposons au lecteur d'avoir une vision globale sur ces objectifs.
 Pour ce faire, une \emph{fiche objectif} comme celle présentée 
@@ -46,12 +47,21 @@ Le modèle LNAS est un modèle de Markov caché :
 
 $Q\sub{prod}(n)$ proportionnelle à $(1-\exp{(-\lambda \, \text{LAI}(n))})$ 
 avec LAI la quantité lumineuse reçue par la plante
+=======
+\subsubsection{Implémentation du modèle LNAS sous \textsc{Julia}}
+Nous allons travailler sur le Modèle LNAS, adapté à la modélisation du blé. 
+Le client a déjà implémenté ce modèle en C++. 
+Nous allons pour notre part l'implémenter sous Julia.
 
-C’est un modèle de Markov caché, il n'y a pas de mémoire du passé.
-\[
-  P(X_{n+1}/X_0,…,X_n) = P(X_{n+1} / X_n) 
-\] 
+Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, nous essaierons donc d'estimer ces paramètres par calibration, grâce aux outils fournis par la statistique.
 
+De plus, les mesures étant difficiles à réaliser et ayant un coût, on ne peut pas mesurer toutes les variables tout le temps. A terme, le but serait "d'obtenir une méthode permettant d'optimiser le choix des variables à mesurer expérimentalement", et ainsi déterminer celles qui ont la plus grande influence et dont les mesures sont accessibles. Nous pourrions ainsi réduire l'incertitude sur les prédictions du modèle, en optimisant la calibration.
+>>>>>>> origin/master
+
+
+<<<<<<< HEAD
 On déduit $Q\sub{grain}(n)$... grâce à $X_n$ et la fonction d'allocation de biomasse.
 
 
+=======
+>>>>>>> origin/master
