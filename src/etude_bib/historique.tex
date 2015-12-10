@@ -69,14 +69,15 @@ Trois types de modèles vont se développer et vont changer cela : les modèles 
 
 L’architecture botanique va considérer la structure des plantes non plus comme une description statique issue de la classification traditionnelle mais comme le résultat de l’organogénèse des méristèmes, la cinétique de mise en place des axes feuillés, en se basant sur une combinatoire des modes de croissance, de ramification et de floraison. (Francis Hallé et Roelof Oldeman).
 
-En parallèle, l’agronomie s’est attaquée à la prédiction de la production surfacique de biomasse. Les modèles hollandais comme celui de De Witt (1970) en sont les précureurs. On ne considère plus la plante en elle-même mais la surface foliaire au mètre carré LAI \footnote{LAI : Leaf Area Index, ratio entre la surface totale supérieure des feuilles vertes et la surface de sol sur laquelle se développe la culture} et la production végétale par mètre carré. Les organes ne sont plus considérés individuellement mais par compartiments. A chaque compartiment est allouée une certaine quantité de la biomasse créée en fonction de sa force de 
-puits\footnote{La force de puits d'un organe est proportionelle à la quantité de biomasse qui sera allouée à cet organe.\cite[~p.229--231]{hopkins2003physiologie} 
-Ainsi, on écrit intuitivement 
-\[
-	\text{force de puits} = \text{taille du puits} * \text{activité du puits}
-\]
-}. 
-Les agronomes ont ainsi montré que la production de biomasse est proportionnelle au LAI, ainsi qu'à l’énergie utile de la lumière incidente : PAR \footnote{PAR : photosynthetically active radiation }, à la lumière interceptée : I et à un facteur d’efficience énergétique : LUE\footnote{LUE : Light Use Efficiency}. On se reporte à la loi de Beer-Lambert pour trouver la quantité de lumière interceptée, qu'on note I : 
+En parallèle, l’agronomie s’est attaquée à la prédiction de la production surfacique de biomasse. Les modèles hollandais comme celui de De Witt (1970) en sont les précureurs. On ne considère plus la plante en elle-même mais la surface foliaire au mètre carré LAI\footnote{LAI : Leaf Area Index.
+Cela correspond au ratio entre la surface totale supérieure des feuilles
+vertes et la surface de sol sur laquelle se développe la culture.} 
+et la production végétale par mètre carré.
+Les organes ne sont plus considérés individuellement mais par compartiments. A chaque compartiment est allouée une certaine quantité de la biomasse créée en fonction de sa force de 
+puits.
+La force de puits d'un organe est proportionelle à la quantité de biomasse qui sera allouée à cet organe.\cite[~p.229--231]{hopkins2003physiologie} 
+
+Les agronomes ont ainsi montré que la production de biomasse est proportionnelle au LAI, ainsi qu'à l’énergie utile de la lumière incidente : PAR \footnote{PAR : Photosynthetically Active Radiation.}, à la lumière interceptée : I et à un facteur d’efficience énergétique : LUE\footnote{LUE : Light Use Efficiency.}. On se reporte à la loi de Beer-Lambert pour trouver la quantité de lumière interceptée, qu'on note I : 
 
 \[ I = 1-e^{-k\cdot\mathrm{LAI}} \]
 
@@ -86,14 +87,15 @@ en déterminant le LUE et en mesurant la PAR.
   Q = \mathrm{LUE}\times\mathrm{PAR}\times I 
 \]
 
-Dernier concept empirique développé, celui de temps thermique. En effet, si on modélise la croissance de la plante  en fonction du temps, cette croissance est très irrégulière et se fait par à coup. Mais si l’on considère le temps thermique\footnote{Le temps thermique correspond à l'accumulation de températures dépassant un certain seuil :
+Dernier concept empirique développé, celui de temps thermique
+\footnote{Le temps thermique correspond à l'accumulation de températures dépassant un certain seuil :
 \[
-\tau^{(n+1)} = tau^{(n)} + max[0, \underline{T^{(n)}} - T_c], 
+\tau^{(n+1)} = \tau^{(n)} + \max[0, \underline{T^{(n)}} - T_c], 
 \]
-où \underline{T^{(n)}} est l'écart de température constaté et 
-T_c est le seuil de variation de température qu'on impose.
-} 
-on peut trouver une relation quasi-linéaire.
+où $\underline{T^{(n)}}$ est l'écart de température constaté et 
+$T_c$ est le seuil de variation de température qu'on impose.
+}.
+En effet, si on modélise la croissance de la plante  en fonction du temps, cette croissance est très irrégulière et se fait par à coup. Mais si l’on considère le temps thermique on peut trouver une relation quasi-linéaire.
 
 \subsubsection{Informatique et modèles géométriques}
 
