@@ -5,13 +5,13 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{./biblio.bib}
 
-\title{\'Etude documentaire et m\'ethodologique}
-\author{Groupe SBT-11}
-\date{\today}
-
 \begin{document}
-\maketitle
 
+\input{./title}
+\newpage
+
+\tableofcontents
+\newpage
 
 \input{./src/resume}
 \newpage
@@ -23,6 +23,8 @@
 \newpage
 \input{./src/articleCournede}
 \newpage
+\input{./src/sensibilite}
+\newpage
 \input{./src/contexte}
 \newpage
 \input{./src/groupwork}
@@ -31,17 +33,19 @@
 \newpage
 \input{./src/remerciements}
 \newpage
+
 %\input{./src/source}
 %\newpage
-\input{./src/sensibilite}
-\newpage
 
 \addcontentsline{toc}{section}{Bibliographie}
 \nocite{*}
 \printbibliography
+\newpage
 
 \appendix
 \part*{Annexes}
 \input{./annexes/planning}
+%\input{./annexes/arbre_perti}
+%\input{./annexes/fiche_obj}
 
 \end{document}
