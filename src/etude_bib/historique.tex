@@ -180,12 +180,7 @@ individuel ne sont pourtant pas adapté à la simulation et encore moins la mod�
   \end{center}
 \end{figure}
 
-<<<<<<< HEAD
-
-Le modèle GreenLab propose une alternative. Il reprend des simplifications utiles du modèle agronome au niveau de la production : la prise en compte de l’architecture individuelle de la plante n’est pas utile au niveau d’un champ, on considère plutôt la distribution des différents types d'organes (densité de feuilles..). Autrement dit, les aspects géométriques peuvent être négligés mais pas la composition quantitative des structures. On fait alors l’hypothèse d’un \empf{pool de biomasse} commun dans lequel les organes vont piocher, et on ne considère que la photosynthèse nette, ie les proportions de glucides qui servent effectivement à la construction de matière sèche des organes. 
-=======
-Le modèle GreenLab propose une alternative. Il reprend des simplifications utiles du modèle agronome au niveau de la production : La prise en compte de l’architecture individuelle de la plante n’est pas utile au niveau d’un champ, mais la connaissance de la distribution des différents organes à différents moment est vitale. Autrement dit, les aspects géométriques peuvent être négligés mais pas la composition quantitative des structures. On fait alors l’hypothèse d’un pool de biomasse commun dans lequel les organes vont piocher, et on ne considère que la photosynthèse net, ie les proportions de glucides qui sert effectivement à la construction de matière sèche des organes. 
->>>>>>> origin/master
+Le modèle GreenLab propose une alternative. Il reprend des simplifications utiles du modèle agronome au niveau de la production : la prise en compte de l’architecture individuelle de la plante n’est pas utile au niveau d’un champ, on considère plutôt la distribution des différents types d'organes (densité de feuilles..). Autrement dit, les aspects géométriques peuvent être négligés mais pas la composition quantitative des structures. On fait alors l’hypothèse d’un \emph{pool de biomasse} commun dans lequel les organes vont piocher, et on ne considère que la photosynthèse nette, ie les proportions de glucides qui servent effectivement à la construction de matière sèche des organes. 
 
 Au niveau de l’allocation, cette approche décrit précisément des compartiments d’organes se comportant de façon similaire, ce qui rend l’allocation de biomasse plus facile à modéliser entre organes sources et organes puits et permet de se passer d’une description géométrique ou même topologique exhaustive. Les organes sont générés par cohortes (groupes générés en même temps) de même type grâce à des équations de production des méristèmes selon leur âge physiologique, et des lois de probabilités qui déterminent la croissance, la sénescence et le branching. Et comme tous les organes d’une même cohorte d’organe du même type ont le même état, on peut opérer facilement une factorisation en sous-structures qui rend les calculs plus léger, ainsi le temps de calcul n’est plus proportionnel au nombre d’organe mais seulement à l’âge de la plante. En particulier en multipliant le nombre d’organe de chaque cohorte par la force de puit correspondante et en additionnant le tout on obtient la demande de la plante.
 
@@ -209,34 +204,19 @@ Pour résumer, ce modèle est un modèle dynamique de croisance des plantes qui 
   \end{center}
 \end{figure}
 
-Cela permet notamment la visualisation en images de synthèse très fidèles et complexes de plantes dont la croissance a été modélisé sans prendre en compte le détail géométrique de cette même structure, donc avec un temps de calcul très intéressant. L’augmentation de biomasse de chaque organe a déjà été simplement déterminée grâce aux équations précédentes, dont on déduit également la forme et le volume, de simples règles géométriques positionnent ces organes dans l’architecture selon l’empilement des entre-nœuds autour d’un axe, la phyllotaxie, l’angle de branchement, la courbure des axes, comme on peut le visualiser en Figure~\ref{fig:exempleGL1}
+Cela permet notamment la visualisation en images de synthèse très fidèles et complexes de plantes dont la croissance a été modélisé sans prendre en compte le détail géométrique de cette même structure, donc avec un temps de calcul très intéressant. L’augmentation de biomasse de chaque organe a déjà été simplement déterminée grâce aux équations précédentes, dont on déduit également la forme et le volume, de simples règles géométriques positionnent ces organes dans l’architecture selon l’empilement des entre-nœuds autour d’un axe, la phyllotaxie, l’angle de branchement, la courbure des axes, comme on peut le visualiser en Figure~\ref{fig:exempleGL1}.
 
-<<<<<<< HEAD
-On peut même simuler des paysages entiers grâce à ces méthodes, avec le raffinement des paysages fonctionnels, qui prennent en compte finement les interactions plantes-environnement, la distribution des ressources hydriques, des radiations lumineuses entre plantes qui sont en compétition...  \ref{fig:exempleP2}
-
-\begin{figure}[h]
-	\begin{center}
-	
-	
-  \includegraphics[scale=1.0]{./img/exempleP1.jpg}
-  \caption{Paysage fonctionnel avec environnement aux paramètres (radiations, humidité) simulés}
-  \label{fig:exempleP1}
-  
-  \end{center}
-\end{figure}
-
-
-
-
-
-=======
-On peut même simuler des paysages entiers grâce à ces méthodes, avec le raffinement des paysages fonctionnels qui prennent en compte finement les interactions plantes-environnement, la distribution des ressources hydriques et des radiations lumineuses entre plantes qui sont en compétition etc… \ref{fig:exempleP2}
+Comme montré dans la Figure~\ref{fig:exempleP1},
+on peut même simuler des paysages entiers grâce à ces méthodes, 
+avec le raffinement des paysages fonctionnels qui prennent en compte
+raffinement les interactions plantes-environnement, la distribution des
+ressources hydriques et des radiations lumineuses entre plantes 
+qui sont en compétition.
 
 \begin{figure}[h]
 	\begin{center}
-  \includegraphics[scale=1.0]{./img/exempleP2.jpg}
+  \includegraphics[scale=1.3]{./img/exempleP1.jpg}
   \caption{Paysage fonctionnel généré grâce à GreenLab.}
-  \label{fig:exempleP2}
+  \label{fig:exempleP1}
   \end{center}
 \end{figure}
->>>>>>> origin/master
