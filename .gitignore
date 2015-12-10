@@ -23,3 +23,5 @@ sbt11-docu.pdf
 *.bbl
 *.bcf
 *.blg
+
+*.gz(busy)

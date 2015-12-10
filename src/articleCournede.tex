@@ -1,11 +1,11 @@
-\section{Développement et évaluation des modèles de croissance des plantes et implémentation sur la plateforme Pygmalion.}
+\subsection{Développement et évaluation des modèles de croissance des plantes et implémentation sur la plateforme Pygmalion.}
 
-\subsection{Généralités}
+\subsubsection{Généralités}
 
 Les modèles mathématiques de modélisation de la croissance des plantes sont généralement caractérisés par un grand nombre de processus en interaction,  un grand nombre de paramètres et une acquisition couteuse des données expérimentales. Cette complexité rend la modélisation très difficile. Le but de cette thèse est de présenter et proposer de bonnes pratiques de modélisation, de donner un aperçu global des différentes étapes de modélisation dans le cadre de la croissance des plantes.
 Le modèle LNAS (celui sur lequel on travaillera en premier dans le cadre du projet enjeu) est présenté comme illustration de ces méthodes, ici appliqué à la betterave, et montre comment il peut être paramétré, évalué et appliqué à la prédiction des rendements, et ce à travers des données expérimentales réelles. Ce modèle a d’intéressante capacité de prédiction lorsqu’il est couplé a de bonnes méthodes d’acquisition de données.
 
-\subsection{Caractéristiques propres aux modèles de croissance de plantes}
+\subsubsection{Caractéristiques propres aux modèles de croissance de plantes}
 
 \begin{itemize}
 
@@ -24,9 +24,9 @@ Les logiciels développés récemment dans ce domaine offrent des solutions int�
 
 L’objectif est donc à la fois bien de situer les bonnes pratiques de modélisation, et de proposer une implémentation pratique, notamment à travers la plateforme Pygmalion en C++ qui fournit un template générique de modèle, des structures de données, des méthodes, des classes et framework appropriés, ainsi qu’une méthodologie statistique.
 
-\subsection{Modèle LNAS}
+\subsubsection{Modèle LNAS}
 
-Le modèle LNAS (Long Normal Allocation and Senescence) appliqué à la betterave. C’est un modèle innovant et suffisamment simple pour illustrer tous les enjeux de la thèse. Il est plutôt robuste étant donné sa simplicité, et le faible nombre de données et paramètre requis le rend pratique à l’utilisation. Il traite la production de biomasse au niveau compartemental et peut être considéré comme une simplification du modèle Digiplante qui décrit les même processus au niveau des organes.
+Le modèle LNAS (Long Normal Allocation and Senescence) appliqué à la betterave. C’est un modèle innovant et suffisamment simple pour illustrer tous les enjeux de la thèse. Il est plutôt robuste étant donné sa simplicité, et le faible nombre de données et paramètre requis le rend pratique à l’utilisation. Il traite la production de biomasse au niveau compartemental et peut être considéré comme une simplification du modèle Greenlab qui décrit les même processus au niveau des organes.
 C’est un modèle Markovien en temps discret.
 
 \begin{figure}[h]
@@ -40,16 +40,22 @@ C’est un modèle Markovien en temps discret.
   \end{center}
 \end{figure}
 
+Production de Biomasse :
 \[ \mathrm{Q}(t) = \big(\mu\cdot\mathrm{PAR}(t)(1-e^{-\lambda\mathrm{Q_g}(t)}\big)\cdot(1+\mathrm{\eta_Q}(t)) \]
 
+Allocation au feuillage :
 \[ \mathrm{Q_f}(t+1) = \mathrm{Q_f}(t) + \mathrm{\gamma}(t)\cdot\mathrm{Q}(t) \]
 
+Allocation à la racine :
 \[ \mathrm{Q_r}(t+1) = \mathrm{Q_r}(t) + (1 -\mathrm{\gamma}(t))\cdot\mathrm{Q}(t) \]
 
+Fonction d'allocation :
 \[ \mathrm{\gamma}(t) = (\gamma_0 + (\gamma_f - \gamma_0)\cdot\mathrm{G_a}(\mathrm{\tau}(t)))\cdot(1+\mathrm{\eta_{\gamma}}(t)) \]
 
+Fonction de sénescence :
 \[ \mathrm{Q_s}(t) = \mathrm{G_s}(\mathrm{\tau}(t)- \tau_{sen})\mathrm{Q_f}(t) \]
 
+Part de la biomasse produite qui arrive aux feuilles vertes :
 \[\mathrm{Q_g}(t) = \mathrm{Q_f}(t) - \mathrm{Q_s}(t) \]
 
 \begin{itemize}
@@ -71,7 +77,7 @@ C’est un modèle Markovien en temps discret.
 
 \end{itemize}
 
-\subsection{Bonnes pratiques en modélisation}
+\subsubsection{Bonnes pratiques en modélisation}
 
 \begin{itemize}
 
