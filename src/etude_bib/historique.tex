@@ -83,13 +83,17 @@ Dernier concept empirique remarquable développé, celui de temps thermique. En 
 
 \subsubsection{Informatique et modèles géométriques}
 
-L’arrivée des ordinateurs a révolutionné les méthodes de simulation et de modélisation des systèmes et l’étude des plantes en a bien sûr profité.
-Les ordinateurs ont fait leur apparition en même temps presque que les modèles agronomes et botaniques. Ainsi très vite ils ont été vus comme un moyen de simuler la structure géométrique complexe des plantes avec le développement d’arbres combinatoires, binaire et fractals. Mais ces structures purement géométriques et trop rigides ne simulent pas encore bien le développement complexe des plantes.
-Les travaux d’Aristide Lindenmayer aboutissent à une grammaire au formalisme puissant, grammaire générative basée sur le principe de réécriture \cite{LSystem}.
-
-L’arrivée des ordinateurs a révolutionné les méthodes de simulation et de modélisation des systèmes et l’étude des plantes en a bien sûr profité.
-Les ordinateurs ont fait leur apparition en même temps presque que les modèles agronomes et botaniques. Ainsi très vite ils ont été vus comme un moyen de simuler la structure géométrique complexe des plantes avec le développement d’arbres combinatoires, binaire et fractals. Mais ces structures purement géométriques et trop rigides ne simulent pas encore bien le développement complexe des plantes.
-Les travaux d’Aristide Lindenmayer aboutissent à une grammaire au formalisme puissant, grammaire générative basée sur le principe de réécriture.
+L’arrivée des ordinateurs a révolutionné les méthodes de simulation ainsi que
+de modélisation des systèmes et l’étude des plantes en a bien sûr profité.
+Les ordinateurs ont fait leur apparition presque en même temps que les
+modèles agronomes et botaniques. Ainsi, très vite, ils ont été vus comme un
+moyen de simuler la structure géométrique complexe des plantes avec le
+développement d’arbres combinatoires, binaires et fractals. 
+Mais ces structures purement géométriques et trop rigides ne simulent pas
+encore bien le développement complexe des plantes.
+Les travaux d’Aristide Lindenmayer aboutissent à une grammaire au formalisme
+puissant, grammaire générative basée sur le principe de
+réécriture~\cite{LSystem}.
 
 \noindent{
 \fbox{
@@ -126,11 +130,28 @@ Avec le résultat sur 6 générations :
   \item[$\bullet$] $n=6$, AB A AB AB A AB A AB AB A AB AB A
 \end{itemize}
 
-Une suite de symbole générée par L-Système peut être prise en entré par un programme informatique qui s’en servira pour générer une structure géométrique, le plus simple étant d’utiliser un turtle en 2D voire en 3D, ou encore dans un langage orienté objet avec des pointeurs on peut générer une chaine cellulaire qui évolue. Les symboles dans V sont les parties des plantes dessinées et les symboles dans S donnent des informations sur la façon dont elles sont dessinées, leur orientation par exemple.
+Une suite de symboles générée par L-Système peut être prise en entrée par un
+programme informatique qui s’en servira pour générer une structure
+géométrique, le plus simple étant d’utiliser un turtle en 2D voire en 3D,
+ou encore dans un langage orienté objet avec des pointeurs on peut générer
+une chaine cellulaire qui évolue. Les symboles dans $V$ sont les parties des plantes dessinées et les symboles dans $S$ donnent des informations sur la façon dont elles sont dessinées, leur orientation par exemple.
 }   
 }
 
-Ces modèles de L-système conviennent bien à la simulation des structures des plantes, elles marchent d’autant mieux combinées à la notion de temps thermique qui ordonne la dynamique de croissance et permettent d’aboutir in fine à une architecture fidèle. Mais elles n’intègrent pas la notion de production de biomasse et si elles permettent de prédire une structure finale aussi fidèle que possible, elles ne permettent pas de prédire le rythme de production. Les écophysiologistes se sont alors efforcés d’intégrer des mécanismes de plus en plus fins, avec une simulation locale et géométrique de la photosynthèse, des échanges entre organes par un système de transport-résistance avec la notion de force de puits de organes puits qui puisent la biomasse produite par les organes sources etc… Ces systèmes complexes qui permettent enfin une simulation fine au niveau individuel ne sont pourtant pas adapté à la simulation et encore moins la modélisation d’un grand ensemble de plantes et ceux pour deux raisons : 
+Ces modèles de L-système conviennent bien à la simulation des structures des
+plantes, elles marchent d’autant mieux combinées à la notion de temps
+thermique qui ordonne la dynamique de croissance et permettent d’aboutir 
+in fine à une architecture fidèle. On constante cependant
+qu'elles n’intègrent pas la notion de
+production de biomasse et si elles permettent de prédire une structure
+finale aussi fidèle que possible, elles ne permettent pas de prédire le
+rythme de production. Les écophysiologistes se sont alors efforcés
+d’intégrer des mécanismes de plus en plus fins, avec une simulation locale
+et géométrique de la photosynthèse, des échanges entre organes par un
+système de transport-résistance avec la notion de force de puits. de organes
+puits qui puisent la biomasse produite par les organes sources etc… 
+Ces systèmes complexes qui permettent enfin une simulation fine au niveau
+individuel ne sont pourtant pas adapté à la simulation et encore moins la modélisation d’un grand ensemble de plantes et ceux pour deux raisons : 
 \begin{enumerate}
 \item \emph{Le coût en ressources de calcul :} il croît avec le temps de la simulation et le nombre d’individus considérés, encore plus si l’on doit considérer les interactions entre les individus.
 \item \emph{La difficulté à paramétrer :} dû au grand nombre de paramètre notamment par rapport aux données que l’on peut raisonnablement récolter.
@@ -140,15 +161,11 @@ Ces modèles de L-système conviennent bien à la simulation des structures des 
 
 \begin{figure}[h]
 	\begin{center}
-	
-	
   \includegraphics[scale=1.0]{./img/sGL.jpg}
-  \caption{Schéma Type d'un modèle GreenLab}
-  \label{fig:schémaGL}
-  
+  \caption{Schéma type d'un modèle GreenLab.}
+  \label{fig:schemaGL}
   \end{center}
 \end{figure}
-
 
 Le modèle GreenLab propose une alternative. Il reprend des simplifications utiles du modèle agronome au niveau de la production : La prise en compte de l’architecture individuelle de la plante n’est pas utile au niveau d’un champ, mais la connaissance de la distribution des différents organes à différents moment est vitale. Autrement dit, les aspects géométriques peuvent être négligés mais pas la composition quantitative des structures. On fait alors l’hypothèse d’un pool de biomasse commun dans lequel les organes vont piocher, et on ne considère que la photosynthèse net, ie les proportions de glucides qui sert effectivement à la construction de matière sèche des organes. 
 
@@ -168,40 +185,20 @@ Pour résumer, Ce modèle est un modèle dynamique de croisance des plantes qui 
 
 \begin{figure}[h]
 	\begin{center}
-	
-	
   \includegraphics[scale=1.0]{./img/exempleGL1.jpg}
-  \caption{Exemple de plantes générées grâce à GreenLab}
+  \caption{Exemple de plantes générées grâce à GreenLab.}
   \label{fig:exempleGL1}
-  
   \end{center}
 \end{figure}
 
 Cela permet notamment la visualisation en image de synthèse très fidèles et complexes de plantes dont la croissance a été modélisé sans prendre en compte le détail géométrique de cette même structure, donc avec un temps de calcul très intéressant. L’augmentation de biomasse de chaque organe a déjà été simplement déterminée grâce aux équations précédentes, dont on déduit également la forme et le volume, de simples règles géométriques positionnent ces organes dans l’architecture selon l’empilement des entre-nœuds autour d’un axe, la phyllotaxie, l’angle de branchement, la courbure des axes… \ref{fig:exempleGL1}
 
-On peut même simuler des paysages entiers grâce à ces méthodes, avec le raffinement des paysages fonctionnels qui prennent en compte finement les interactions plantes-environnement, la distribution des ressources hydriques et des radiations lumineuses entre plantes qui sont en compétition etc… \ref{fig:exempleP1} \ref{fig:exempleP2}
+On peut même simuler des paysages entiers grâce à ces méthodes, avec le raffinement des paysages fonctionnels qui prennent en compte finement les interactions plantes-environnement, la distribution des ressources hydriques et des radiations lumineuses entre plantes qui sont en compétition etc… \ref{fig:exempleP2}
 
 \begin{figure}[h]
 	\begin{center}
-	
-	
-  \includegraphics[scale=1.0]{./img/exempleP1.jpg}
-  \caption{Paysage fonctionnel avec environnement aux paramètres (radiations, humidité) simulés}
-  \label{fig:exempleP1}
-  
-  \end{center}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-	
-	
   \includegraphics[scale=1.0]{./img/exempleP2.jpg}
-  \caption{Paysage fonctionnel généré grâce à GreenLab}
+  \caption{Paysage fonctionnel généré grâce à GreenLab.}
   \label{fig:exempleP2}
-  
   \end{center}
 \end{figure}
-
-
-
