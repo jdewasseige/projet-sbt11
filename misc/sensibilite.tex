@@ -1,10 +1,10 @@
-\subsection{Analyse de sensibilité}
+\subsubsection{Analyse de sensibilité}
 L'analyse de sensibilité d'un modèle permet d'évaluer la sensibilité de la
 variable réponse à des perturbations dans les entrées du modèle et
 d'identifier les paramètres ayant le plus d'influence
 sur les résultats du modèle.
 
-En supposant que le modèle qui peut se représenter suivant:
+En supposant que le modèle peut se représenter suivant:
 \[
   y = f(z_1,\dots,z_p)
 \]
@@ -12,11 +12,11 @@ avec $z_1,\dots ,z_p$ les paramètres dont on veut étudier l'influence sur $y$.
 
 Généralement on distingue deux types de méthodes quantitatives:
 \begin{description}
-  \item[les\ méthodes\ locales] Elles permettent d'étudier l'effet de la
+  \item[les\ méthodes\ locales], elles permettent d'étudier l'effet de la
 variation locale d'un facteur $z_i$ avec tous les autres facteurs étant fixés à des valeurs moyennes qui en général sont peu coûteuses en temps de calcul
 \item[les\ méthodes\ globales], où on autorise tous les paramètres à varier simultanément dans leur intervalle de variation. Ces méthodes permettent d'identifier et d'évaluer des interaction entre les paramètres
 \end{description}
- décomposition de la variance V du modèle en termes de dimension croissance pour analyse la sensibilité:
+Décomposition de la variance $V$ du modèle en termes de dimension croissance pour analyse la sensibilité:
 \[ {V}=\sum_{i=1}^pV_i+\sum_{1\leq i,j \leq p} V_{ij}+\cdots +V_{1\cdots p}\]
 
 \[ {V_i}=Var(E(y|Z_i))\]

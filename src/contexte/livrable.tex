@@ -1,43 +1,72 @@
 \subsection{Objectifs poursuivis}
-\subsubsection{Implémentation du modèle LNAS sous \textsc{Julia}}
-On va travailler sur le Modèle LNAS, adapté à la modélisation du blé. 
-Le client a déja implémenté ce modèle en C++. 
-Nous allons pour notre part l'implémenter sous Julia.
+Avant d'expliquer en détails les objectifs poursuivis par le projet,
+nous proposons au lecteur d'avoir une vision globale sur ces objectifs.
+Pour ce faire, une \emph{fiche objectif} comme celle présentée 
+lors de la conférence sur 
+la méthode du Ludion\footnote{Conférence du 5 novembre 2015 
+sur la méthode de Ludion par Paul-Hubert des \textsc{Mesnards}.} 
+semble parfaitement adaptée.
+Nous y avons par conséquent accordé une importance fondamentale
+lors de la rédaction de cette section.
+Celle-ci se trouve à la Figure~\ref{fig:fiche_obj} 
+dans l'Annexe~\ref{ann:fiche_obj}.
+On trouvera égalemment à la Figure~\ref{fig:arbre_perti}
+dans l'Annexe~\ref{ann:arbre_perti}, l'arbre de pertinence
+qui nous a permis de rappelé le but poursuivi ainsi
+que de décomposer le projet en un ensemble de sous-objectifs.
 
-Ce modèle était d'abord utilisé pour modéliser la betterave, 
-plus simple à modéliser que le blé. 
-En effet, pour la betterave il suffit de modéliser 
-ses racines (partie utile) et ses feuilles.
-On va modéliser le blé, on rajoute la tige et les grains (partie utile du blé)
-pour maximiser le rendement des cultures en minimisant l’apport d’intrans.
-Nous allons donc utiliser la plateforme Pygmalion pour implémenter ce modèle du blé,
-en nous basant sur un document fourni par le client.
+Notre objectif est de travailler sur le modèle LNAS
+adapté à la modélisation du blé et plus particulièrement de l'implémenter
+sur la plateforme PyGMAlion-Julia du laboratoire Digiplante.
 
-Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, nous essaierons donc d'estimer ces paramètres par calibration, grâce aux outils fournis par la statistique.
+% Pour ce faire, il nous semble nécessaire de décrire les étapes
+% qui vont nous permettre de réaliser cette tâche le plus efficacement possible.
 
-De plus, les mesures étant difficiles à réaliser et ayant un coût, on ne peut pas mesurer toutes les variables tout le temps. A terme, le but serait \"d'obtenir une méthode permettant d'optimiser le choix des variables à mesurer expérimentalement\", celles qui ont la plus grande influence et dont les mesures sont accessibles. Nous pourrions ainsi réduire l'incertitude sur les prédictions du modèle, en optimisant la calibration.
-
-
-Le modèle LNAS est un modèle de Markov caché : 
-\begin{itemize}
-  \item $n$  temps (discret)     
-  \item $X_n$ variable au temps $n$       
-  \item $Q\sub{grain}, Q\sub{leaf}... $ biomasse des grains, feuilles...      
-  \item $f$ fonction qui permet de passer du temps $n$ au temps $n+1$     
-  \item $P$ paramètres      
-  \item En précipations, température... au temps $n$
-\end{itemize}
-
-\begin{equation}
-  X_{n+1} = f(X_n,E_n,P,n)
-\end{equation} 
-
-$Q\sub{prod}(n)$ proportionnelle à $(1-\exp{(-\lambda \, \text{LAI}(n))})$ 
-avec LAI la quantité lumineuse reçue par la plante
-
-C’est un modèle de Markov caché, il n'y a pas de mémoire du passé.
+Il s'agit donc en premier lieu de comprendre comment les modèles
+sont représentés sur la plateforme. 
+On rappelera notamment qu'en informatique tout est discrétisé
+que ce soit implicitement ou explicitement.
+À titre d'exemple, calculer une intégrale est un problème
+qui nécessite d'intégrer sur un domaine qui est théoriquement continu,
+l'ordinateur cependant utilisera toujours des méthodes qui discrétise
+l'aire sous une courbe.
+L'exemple explicite semble une façon adéquate d'abordée
+la façon dont un modèle est considéré sous PyGMAlion.
+En effet, il s'agit de construire un système dynamique discret,
+c'est-à-dire où le temps est découpé en un nombre fini d'intervalles $t_n$.
+Le système est alors représenté sous la forme
 \[
-  P(X_{n+1}/X_0,…,X_n) = P(X_{n+1} / X_n) 
-\] 
+  X_{n+1} = f_n(X_n, U_n, P)
+\]
+où $X_n$ correspond aux variables d'état du système (la production
+de biomasse) au temps $n$, $P$ les paramètres (qui dépendent des types
+de plantes en question) et $U_n$ qui représente les variables
+environnementales telles que la quantité de radiation, température,
+teneur en eau du sol.
+Une fois ces 3 groupes identifiés, il s'agit de déterminer la fonction $f_n$ qui relie les variables d'état entre elles.
+La dernière étape de modélisation consiste à déterminer
+les fonctions qui régissent la répartition de biomasse 
+à travers les différents organes de la plante.
+Ceci dépendra évidemment du type de plante considéré
+(le cas de la betterave est par exemple considérablement
+plus simple que celui du blé).
 
-On déduit $Q\sub{grain}(n)$... grâce à $X_n$ et la fonction d'allocation de biomasse.
+Il y a environ 30 paramètres dans le modèle. Une fois le modèle implémenté, nous essaierons donc d'estimer ces paramètres par calibration,
+grâce à des outils statistiques.
+
+De plus, les mesures expérimentales étant difficiles à réaliser 
+et ayant un coût, on ne peut pas mesurer toutes les variables tout le temps. 
+À terme, le but serait \enquote{d'obtenir une méthode permettant d'optimiser
+le choix des variables à mesurer 
+expérimentalement}\footnote{Fiche de présentation du projet enjeu.
+\textsc{Digiplante}, 2015.},
+et ainsi déterminer celles qui ont la plus grande influence 
+et dont les mesures sont accessibles. 
+Nous pourrions ainsi réduire l'incertitude sur les prédictions du modèle,
+en optimisant la calibration.
+
+
+
+
+
+
