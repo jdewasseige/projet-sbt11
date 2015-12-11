@@ -7,7 +7,6 @@ l'avènement de l'informatique.
 Finalement, un modèle particulièrement intéressant,
 le modèle GreenLab, sera présenté.
 
-
 Cette section reprend la démarche suivie dans 
 l'article \emph{Une histoire de la modélisation des plantes}, \textsc{Cournède} et al., 2009~\cite{histoire_mod_plantes}.
 
@@ -193,9 +192,7 @@ Le modèle GreenLab propose une alternative. Il reprend des simplifications util
 Au niveau de l’allocation, cette approche décrit précisément des compartiments d’organes se comportant de façon similaire, ce qui rend l’allocation de biomasse plus facile à modéliser entre organes sources et organes puits et permet de se passer d’une description géométrique ou même topologique exhaustive. Les organes sont générés par cohortes (groupes générés en même temps) de même type grâce à des équations de production des méristèmes selon leur âge physiologique, et des lois de probabilités qui déterminent la croissance, la sénescence et le branching. Et comme tous les organes d’une même cohorte d’organe du même type ont le même état, on peut opérer facilement une factorisation en sous-structures qui rend les calculs plus léger, ainsi le temps de calcul n’est plus proportionnel au nombre d’organe mais seulement à l’âge de la plante. En particulier en multipliant le nombre d’organe de chaque cohorte par la force de puit correspondante et en additionnant le tout on obtient la demande de la plante.
 
 Ensuite l’augmentation $\delta q$ de biomasse de chaque organe est obtenu avec la formule suivante :
-
 \[ \delta q = \phi \cdot Q/D \]
-
 Avec $\phi$ la force de puit, Q la pool de biomasse global et D la demande totale de la plante.
 
 La masse des organes est la somme cumulée de l’augmentation des biomasses, on peut donc obtenir rapidement les dimensions (longueur, diamètre, surface) des organes en utilisant de simples lois géométriques (beaucoup plus simple que celles utilisées lorsque la géométrie est prise en compte dans la production). 
@@ -206,7 +203,7 @@ Pour résumer, ce modèle est un modèle dynamique de croisance des plantes qui 
 
 \begin{figure}[h]
 	\begin{center}
-  \includegraphics[scale=1.0]{./img/exempleGL1.jpg}
+  \includegraphics[scale=0.9]{./img/exempleGL1.jpg}
   \caption{Exemple de plantes générées grâce à GreenLab.}
   \label{fig:exempleGL1}
   \end{center}
